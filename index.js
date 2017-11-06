@@ -10,7 +10,9 @@ var PAGE_DATA = {
         joined: {
             month: 3,
             year: 2008
-        }
+        },
+        pic_url:
+            'https://pbs.twimg.com/profile_images/73450913/IMG_0202_400x400.jpg'
     },
     chips: [
         {
@@ -140,10 +142,22 @@ function userInformation() {
         '</p>';
     return html;
 }
+function picture() {
+    return (
+        '<img class="img-circle" src="' +
+        PAGE_DATA.user.pic_url +
+        '" lt="Raymond Hettinger" height="215" width="215">'
+    );
+}
 
 function showUserInformation() {
     var h = userInformation();
+
     $('#column1').html(h);
+}
+function showPic() {
+    var p = picture();
+    $('#header2').html(p);
 }
 
 //**************************** column2 *********************************/
@@ -186,6 +200,7 @@ function shownavbar() {
 }
 //***************************** Main **********************************/
 function main() {
+    showPic();
     showUserInformation();
     showChirpInformation();
     shownavbar();
