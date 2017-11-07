@@ -92,6 +92,20 @@ var PAGE_DATA = {
             message:
                 'With #python iterators, we think of next() as initiating execution. With coroutines, we "await" a downstream event to initiate execution.'
         }
+    ],
+    suggestedFriends: [
+        {
+            username: 'basecampcoding',
+            name: 'Base Camp Coding',
+            img_url:
+                'https://pbs.twimg.com/profile_images/656838014446927872/DIEvACFG_400x400.png'
+        },
+        {
+            username: 'code_ms',
+            name: 'Code Mississippi',
+            img_url:
+                'https://pbs.twimg.com/profile_images/837387398510170112/qUb2XhX4_400x400.jpg'
+        }
     ]
 };
 //*********************** change num to month ************************/
@@ -123,7 +137,7 @@ function userInformation() {
         '">@' +
         PAGE_DATA.user.username +
         '</a></p>';
-    html += '<p>' + PAGE_DATA.user.description + '</p>';
+    html += '<p id="description">' + PAGE_DATA.user.description + '</p>';
     html +=
         '<p><i class="fa fa-map-pin" aria-hidden="true"></i> ' +
         PAGE_DATA.user.location +
@@ -163,15 +177,21 @@ function showPic() {
 //**************************** column2 *********************************/
 function chirpInformation(chirp) {
     var html =
-        '<h3><img class="img-circle2" src="https://pbs.twimg.com/profile_images/73450913/IMG_0202_400x400.jpg" alt="Raymond Hettinger"height="60" width="60"> ' +
+        '<h3><img class="img-circle2" src="' +
+        PAGE_DATA.user.pic_url +
+        '" alt="Raymond Hettinger"height="60" width="60"><a id="user" href="https://twitter.com/' +
+        PAGE_DATA.user.username +
+        '">' +
         chirp.author.name +
-        ' @' +
+        '</a><a id="info" href="https://twitter.com/' +
+        PAGE_DATA.user.username +
+        '"> @' +
         chirp.author.username +
         ' ' +
         month[chirp.date.month] +
         ' ' +
         chirp.date.day +
-        '</h3>';
+        '</a></h3>';
     html +=
         '<p><i class="fa fa-arrow-right" aria-hidden="true"></i> ' +
         chirp.message +
@@ -186,6 +206,7 @@ function showChirpInformation() {
         .join('');
     $('#column2').html(html);
 }
+//************************************** nav bar ***********************/
 function navbar() {
     var html =
         '<a id="Home" href="http://twitter.com"><i id="bird" class="fa fa-twitter" aria-hidden="true"></i> Home</a>';
@@ -198,11 +219,35 @@ function shownavbar() {
     var html = navbar();
     $('#header1').html(html);
 }
+//****************************************** column 3 ************************/
+function signup() {
+    var html = '<h5> New to Twitter?<h4>';
+    html += '<p id="sign">Sign up now to get your own personalized timeline!';
+    html +=
+        '<br><br><br><a href="https://twitter.com/signup" class="signup-button">Sign up</a>';
+    return html;
+}
+function showsignup() {
+    var html = signup();
+    $('#column3').html(html);
+}
+function youMayAlsoLIKE() {
+    var html =
+        '<h5> You may also like</h5><button id="refresh" type="button">Refresh</button>';
+    return html;
+}
+function showyouMayAlsoLike() {
+    var html = youMayAlsoLIKE();
+    $('#column4').html(html);
+}
+
 //***************************** Main **********************************/
 function main() {
     showPic();
     showUserInformation();
     showChirpInformation();
+    showsignup();
+    showyouMayAlsoLike();
     shownavbar();
 }
 
