@@ -8,7 +8,7 @@ var PAGE_DATA = {
         location: 'Santa Clara, CA',
         website: 'rhettinger.wordpress.com',
         joined: {
-            month: 3,
+            month: 2,
             year: 2008
         },
         pic_url:
@@ -21,7 +21,7 @@ var PAGE_DATA = {
                 username: 'raymondh'
             },
             date: {
-                month: 10,
+                month: 9,
                 day: 28,
                 year: 2017
             },
@@ -34,7 +34,7 @@ var PAGE_DATA = {
                 username: 'raymondh'
             },
             date: {
-                month: 10,
+                month: 9,
                 day: 25,
                 year: 2017
             },
@@ -47,7 +47,7 @@ var PAGE_DATA = {
                 username: 'raymondh'
             },
             date: {
-                month: 10,
+                month: 9,
                 day: 23,
                 year: 2017
             },
@@ -60,7 +60,7 @@ var PAGE_DATA = {
                 username: 'raymondh'
             },
             date: {
-                month: 10,
+                month: 9,
                 day: 5,
                 year: 2017
             },
@@ -72,7 +72,7 @@ var PAGE_DATA = {
                 username: 'raymondh'
             },
             date: {
-                month: 9,
+                month: 8,
                 day: 24,
                 year: 2017
             },
@@ -85,7 +85,7 @@ var PAGE_DATA = {
                 username: 'raymondh'
             },
             date: {
-                month: 9,
+                month: 8,
                 day: 24,
                 year: 2017
             },
@@ -128,18 +128,18 @@ var PAGE_DATA = {
 };
 //*********************** change num to month ************************/
 const month = {
-    1: 'January',
-    2: 'February',
-    3: 'March',
-    4: 'April',
-    5: 'May',
-    6: 'June',
-    7: 'July',
-    8: 'August',
-    9: 'September',
-    10: 'October',
-    11: 'November',
-    12: 'December'
+    0: 'January',
+    1: 'February',
+    2: 'March',
+    3: 'April',
+    4: 'May',
+    5: 'June',
+    6: 'July',
+    7: 'August',
+    8: 'September',
+    9: 'October',
+    10: 'November',
+    11: 'December'
 };
 //**************************** column1 *********************************/
 function userInformation() {
@@ -273,6 +273,41 @@ function showyouMayAlsoLike() {
     $('#column4').html(html);
 }
 
+//***************************** Columntweet ***************************/
+function tweetButton() {
+    var html =
+        '<button id="tweetbutton" onclick="addTweetInput()">Tweet</button>';
+    return html;
+}
+function addTweetInput() {
+    var html = '<h7>Tweet:</h7> <textarea id="textarea" cols= 60 rows= 5/>';
+    html +=
+        '<button id="submit" onclick="addTweetInputInPAGEDATA()">Submit</button>';
+    $('#columntweet').html(html);
+}
+function showAddTweetInput() {
+    var html = tweetButton();
+    $('#columntweet').html(html);
+}
+function addTweetInputInPAGEDATA() {
+    var d = new Date();
+    console.log(d.getDate());
+    var message = {
+        author: {
+            name: 'Raymond Hettinger',
+            username: 'raymondh'
+        },
+        date: {
+            month: d.getMonth(),
+            day: d.getDate(),
+            year: d.getFullYear()
+        },
+        message: $('#textarea').val()
+    };
+    PAGE_DATA.chips.splice(0, 0, message);
+    showAddTweetInput();
+    showChirpInformation();
+}
 //***************************** Main **********************************/
 function main() {
     showPic();
@@ -280,6 +315,7 @@ function main() {
     showChirpInformation();
     showsignup();
     showyouMayAlsoLike();
+    showAddTweetInput();
     shownavbar();
 }
 
