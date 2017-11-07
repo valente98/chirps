@@ -43,6 +43,7 @@
     border: 1px solid white;
     height: 450px;
 }
+
 #columntweet {
     float: left;
     margin-top: 1%;
@@ -93,6 +94,7 @@ h5 {
     font-size: 21px;
     color: black;
     font-weight: bolder;
+    display: inline;
 }
 h6 {
     margin-left: 5%;
@@ -104,13 +106,6 @@ h7 {
     margin-left: 3%;
     font-size: 18px;
     color: #1da1f2;
-}
-#refresh {
-    font-size: 12px;
-    color: #1da1f2;
-    border: none;
-    background: none;
-    outline: none;
 }
 p {
     font-size: 14px;
@@ -156,7 +151,7 @@ p {
 }
 #usernames {
     margin-left: 3%;
-    margin-top: 7%;
+    margin-top: 3%;
     float: left;
 }
 #tweetbutton {
@@ -170,11 +165,19 @@ p {
 #names {
     color: black;
     font-weight: bolder;
+    margin-top: 3%;
 }
 #submit {
     margin-bottom: 2%;
     font-size: 14px;
     color: darkblue;
+    border: none;
+    background: none;
+    outline: none;
+}
+#refreshFriends {
+    color: #1da1f2;
+    font-size: 12px;
     border: none;
     background: none;
     outline: none;
