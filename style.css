@@ -42,7 +42,15 @@
     width: 24%;
     background-color: #fff;
     border: 1px solid white;
-    height: 155px;
+    height: 450px;
+}
+#columntweet {
+    float: left;
+    margin-top: 1%;
+    margin-left: 3%;
+    width: 50%;
+    background-color: #fff;
+    border: 1px solid #fff;
 }
 body {
     background-color: #e6ecf0;
@@ -103,6 +111,7 @@ h6 {
 p {
     font-size: 14px;
 }
+
 #header1 {
     position: top;
     left: 0;
@@ -140,4 +149,13 @@ p {
 }
 #info {
     color: grey;
+}
+#usernames {
+    margin-left: 3%;
+    margin-top: 7%;
+    float: left;
+}
+#names {
+    color: black;
+    font-weight: bolder;
 }
