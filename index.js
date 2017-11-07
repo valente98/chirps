@@ -123,6 +123,12 @@ var PAGE_DATA = {
             name: 'FedEx',
             img_url:
                 'https://pbs.twimg.com/profile_images/902281255802339331/aVXYUjiu_400x400.jpg'
+        },
+        {
+            username: 'Renasant Bank',
+            name: 'Renasant',
+            img_url:
+                'https://pbs.twimg.com/profile_images/571384262411051008/ObDd8Wqd_400x400.png'
         }
     ]
 };
@@ -249,7 +255,7 @@ function showsignup() {
     var html = signup();
     $('#column3').html(html);
 }
-
+//****************************************** column 4 ***********************/
 function youMayAlsoLIKE(suggest) {
     var html =
         '<div id="usernames"><img class="img-circle2" src="' +
@@ -263,16 +269,22 @@ function youMayAlsoLIKE(suggest) {
     return html;
 }
 function showyouMayAlsoLike() {
+    var friendData = PAGE_DATA.suggestedFriends.slice();
+    var data = new Array();
+    while (data.length < 5) {
+        var i = Math.floor(Math.random() * friendData.length);
+        data.push(friendData[i]);
+        friendData.splice(i, 1);
+    }
     var html =
-        '<div id="header"><h5> You may also like <button id="refresh" type="button">Refresh</button></h5></div>';
-    html += PAGE_DATA.suggestedFriends
+        '<h5> You may also like </h5><button id="refreshFriends"  onclick="showyouMayAlsoLike()" type="button">&bull; Refresh</button>';
+    html += data
         .map(function(suggest) {
             return youMayAlsoLIKE(suggest);
         })
         .join('');
     $('#column4').html(html);
 }
-
 //***************************** Columntweet ***************************/
 function tweetButton() {
     var html =
