@@ -105,6 +105,24 @@ var PAGE_DATA = {
             name: 'Code Mississippi',
             img_url:
                 'https://pbs.twimg.com/profile_images/837387398510170112/qUb2XhX4_400x400.jpg'
+        },
+        {
+            username: 'CoalesceJxn',
+            name: 'Coalesce',
+            img_url:
+                'https://pbs.twimg.com/profile_images/674302593154154496/D59nQPLI_400x400.jpg'
+        },
+        {
+            username: 'CSpire',
+            name: 'C Spire',
+            img_url:
+                'https://pbs.twimg.com/profile_images/832727503944814592/qwVyJv9o_400x400.jpg'
+        },
+        {
+            username: 'FedEx',
+            name: 'FedEx',
+            img_url:
+                'https://pbs.twimg.com/profile_images/902281255802339331/aVXYUjiu_400x400.jpg'
         }
     ]
 };
@@ -231,13 +249,27 @@ function showsignup() {
     var html = signup();
     $('#column3').html(html);
 }
-function youMayAlsoLIKE() {
+
+function youMayAlsoLIKE(suggest) {
     var html =
-        '<h5> You may also like</h5><button id="refresh" type="button">Refresh</button>';
+        '<div id="usernames"><img class="img-circle2" src="' +
+        suggest.img_url +
+        '" alt="Raymond Hettinger"height="60" width="60"></div><br><p id="names">' +
+        suggest.name +
+        '</p><p>@' +
+        suggest.username +
+        '</p>';
+
     return html;
 }
 function showyouMayAlsoLike() {
-    var html = youMayAlsoLIKE();
+    var html =
+        '<div id="header"><h5> You may also like <button id="refresh" type="button">Refresh</button></h5></div>';
+    html += PAGE_DATA.suggestedFriends
+        .map(function(suggest) {
+            return youMayAlsoLIKE(suggest);
+        })
+        .join('');
     $('#column4').html(html);
 }
 
