@@ -89,6 +89,11 @@ h3 {
     font-size: 14px;
     font-weight: bolder;
 }
+h8 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #14171a;
+}
 h5 {
     margin-left: 5%;
     font-size: 21px;
@@ -109,6 +114,15 @@ h7 {
 }
 p {
     font-size: 14px;
+}
+#cancel {
+    font-size: 14px;
+    color: #1da1f2;
+    float: right;
+    margin-right: 11%;
+    border: none;
+    background: none;
+    outline: none;
 }
 
 #header1 {
@@ -154,15 +168,17 @@ p {
     margin-top: 3%;
     float: left;
 }
-#tweetbutton {
-    margin-left: 3%;
-    font-size: 18px;
+#tweetbutton,
+#popup {
+    margin-left: 4%;
+    font-size: 19px;
     color: #1da1f2;
     border: none;
     background: none;
     outline: none;
 }
 #names {
+    margin-left: 3%;
     color: black;
     font-weight: bolder;
     margin-top: 3%;
@@ -170,7 +186,7 @@ p {
 #submit {
     margin-bottom: 2%;
     font-size: 14px;
-    color: darkblue;
+    color: #1da1f2;
     border: none;
     background: none;
     outline: none;
@@ -181,4 +197,13 @@ p {
     border: none;
     background: none;
     outline: none;
+}
+#modalinfo {
+    font-size: 21px;
+    color: #66757f;
+    font-weight: bold;
+}
+#bird2 {
+    font-size: 32px;
+    color: #1da1f2;
 }
