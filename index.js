@@ -1,4 +1,6 @@
 //********************* user information ******************/
+// var info = $.post('https://bcca-chirper.herokuapp.com/api/');
+
 var PAGE_DATA = {
     user: {
         name: 'Raymond Hettinger',
@@ -101,7 +103,7 @@ var PAGE_DATA = {
                 'https://pbs.twimg.com/profile_images/656838014446927872/DIEvACFG_400x400.png'
         },
         {
-            username: 'code_ms',
+            username: 'codems_net',
             name: 'Code Mississippi',
             img_url:
                 'https://pbs.twimg.com/profile_images/837387398510170112/qUb2XhX4_400x400.jpg'
@@ -125,7 +127,7 @@ var PAGE_DATA = {
                 'https://pbs.twimg.com/profile_images/902281255802339331/aVXYUjiu_400x400.jpg'
         },
         {
-            username: 'Renasant Bank',
+            username: 'Renasant',
             name: 'Renasant',
             img_url:
                 'https://pbs.twimg.com/profile_images/571384262411051008/ObDd8Wqd_400x400.png'
@@ -245,10 +247,10 @@ function shownavbar() {
 }
 //****************************************** column 3 ************************/
 function signup() {
-    var html = '<h5> New to Twitter?<h4>';
+    var html = '<h5> New to Chirper?<h4>';
     html += '<p id="sign">Sign up now to get your own personalized timeline!';
     html +=
-        '<br><br><br><a href="https://twitter.com/signup" class="signup-button">Sign up</a>';
+        '<br><br><br><a href="../../November/chirper-frontend/index.html" class="signup-button">Sign up</a>';
     return html;
 }
 function showsignup() {
@@ -260,11 +262,13 @@ function youMayAlsoLIKE(suggest) {
     var html =
         '<div id="usernames"><img class="img-circle2" src="' +
         suggest.img_url +
-        '" alt="Raymond Hettinger"height="60" width="60"></div><br><p id="names">' +
+        '" alt="Raymond Hettinger"height="60" width="60"></div><br><p id="names"><a id="user" href="https://twitter.com/' +
+        suggest.username +
+        '">' +
         suggest.name +
         '</p><p>@' +
         suggest.username +
-        '</p>';
+        '</a></p>';
 
     return html;
 }
@@ -288,11 +292,17 @@ function showyouMayAlsoLike() {
 //***************************** Columntweet ***************************/
 function tweetButton() {
     var html =
-        '<button id="tweetbutton" onclick="addTweetInput()">Tweet</button>';
+        '<button id="tweetbutton" onclick="addTweetInput()">Chirp</button>';
+    html +=
+        '<button type="button" id="popup" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Chirps & replies</button>';
+    html +=
+        '<button type="button" id="popup" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Media</button>';
     return html;
 }
+
 function addTweetInput() {
-    var html = '<h7>Tweet:</h7> <textarea id="textarea" cols= 60 rows= 5/>';
+    var html =
+        '<h7>Tweet: <button id="cancel" onclick="showAddTweetInput()">Cancel</button></h7> <textarea id="textarea" cols= 60 rows= 5/>';
     html +=
         '<button id="submit" onclick="addTweetInputInPAGEDATA()">Submit</button>';
     $('#columntweet').html(html);
@@ -329,6 +339,7 @@ function main() {
     showyouMayAlsoLike();
     showAddTweetInput();
     shownavbar();
+    showpopus();
 }
 
 $(main);
