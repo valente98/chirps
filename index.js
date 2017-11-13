@@ -58,7 +58,7 @@ function showUserInformation() {
 }
 function showPic() {
     var p = picture();
-    $('#header2').html(p);
+    $('#header1').html(p);
 }
 
 //**************************** column2 *********************************/
@@ -91,25 +91,11 @@ function showChirpInformation() {
         .join('');
     $('#column2').html(html);
 }
-//************************************** nav bar ***********************/
-function navbar() {
-    var html =
-        '<a id="Home" href="http://twitter.com"><i id="bird" class="fa fa-twitter" aria-hidden="true"></i> Home</a>';
-    html +=
-        '<a id="Home" href="https://twitter.com/i/moments"><i id="bird" class="fa fa-bolt" aria-hidden="true"></i> Moments</a>';
-    return html;
-}
-
-function shownavbar() {
-    var html = navbar();
-    $('#header1').html(html);
-}
-//****************************************** column 3 ************************/
 function signup() {
     var html = '<h5> New to Chirper?<h4>';
     html += '<p id="sign">Sign up now to get your own personalized timeline!';
     html +=
-        '<br><br><br><a href="../../November/chirper-frontend/index.html" class="signup-button">Sign up</a>';
+        '<br><br><br><a href="../../November/chirper-frontend/signup/index.html" class="signup-button">Sign up</a>';
     return html;
 }
 function showsignup() {
@@ -148,6 +134,30 @@ function showsignup() {
 //         .join('');
 //     $('#column4').html(html);
 // }
+//***************************** searchbar *****************************/
+function search() {
+    $('#searchbutton').on('click', function() {
+        $.post(
+            'https://bcca-chirper.herokuapp.com/api/' + $('#search').val() + '/'
+        )
+            .then(function handleFeedResponse(response) {
+                console.log(response);
+                PAGE_DATA = response;
+                console.log(PAGE_DATA);
+                window.location =
+                    'file:///home/basecamp/Projects/Dailey_exercises/October/chirper-feed/index.html?user=' +
+                    $('#search').val() +
+                    '';
+            })
+            .catch(function handleFeedReason(reason) {
+                console.log('Failure:', reason);
+                $('#search-error').html(
+                    '<li id="error" >Incorrect username</li>'
+                );
+            });
+    });
+}
+
 //***************************** Columntweet ***************************/
 function tweetButton() {
     var html =
@@ -187,8 +197,6 @@ function addTweetInputInPAGEDATA() {
     };
     $.post(
         'https://bcca-chirper.herokuapp.com/api/chirp/',
-        // PAGE_DATA.chirps.splice(0, 0, message) +
-        // '/',
         JSON.stringify({
             key: window.localStorage.getItem('key'),
             message: message.message
@@ -209,9 +217,9 @@ function main(username) {
             showUserInformation();
             showChirpInformation();
             showsignup();
+            search();
             // showyouMayAlsoLike();
             showAddTweetInput();
-            shownavbar();
             // showpopus();
         })
         .catch(function handleFeedReason(reason) {
