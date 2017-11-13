@@ -15,8 +15,33 @@
 </head>
 
 <body>
-    <div id="header1" class="col-lg-12"></div>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="active" href="#home">
+                        <i id="bird" class="fa fa-twitter" aria-hidden="true"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#news">
+                        <i id="bird" class="fa fa-bolt" aria-hidden="true"></i> Moments</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input id="search" type="text" name="search" placeholder="Search..">
+                </li>
+                <li>
+                    <button type="button" id="searchbutton">
+                        <i id="bird" class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <ul id="search-error"></ul>
+            </ul>
+        </div>
+    </nav>
     <div id="header2" class="col-lg-12"></div>
+    <div id="header1" class="col-lg-12"></div>
     <div class="container">
         <div id="column1">
             <h3>
@@ -50,7 +75,7 @@
                                     <br> about, and get updates as they happen.
                                 </p>
                                 <br>
-                                <a href="https://twitter.com/signup" class="signup-button">Sign up</a>
+                                <a href="file:///home/basecamp/Projects/Dailey_exercises/November/chirper-frontend/signup/index.html" class="signup-button">Sign up</a>
                             </center>
                         </div>
                         <div class="modal-footer">
