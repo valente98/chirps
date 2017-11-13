@@ -2,9 +2,33 @@
     float: left;
     color: grey;
     width: 20%;
+    height: 180px;
 }
-.img-circle {
-    margin-top: 3%;
+input[type='text'] {
+    width: 130px;
+    float: right;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    font-size: 16px;
+
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type='text']:focus {
+    width: 100%;
+}
+#img-circle {
+    font-size: 180px;
+    border-radius: 50%;
+    background-color: darkblue;
+    margin-top: -90px;
     margin-left: 8%;
     overflow: visible;
     border-style: solid;
@@ -58,11 +82,28 @@ body {
 h1 {
     margin-top: 17%;
 }
-#Home {
-    color: gray;
-    font-size: 20px;
-    margin-left: 5%;
-    padding-top: 5cm;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #1da1f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: rgb(39, 190, 39);
 }
 #bird {
     color: blue;
@@ -126,22 +167,23 @@ p {
 }
 
 #header1 {
-    position: top;
+    font-size: 18px;
+    /* position: top; */
     left: 0;
     background-color: white;
     width: 100%;
-    height: 280px;
+    height: 90px;
     padding: 0px;
     margin: 0px;
 }
 #header2 {
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     background-color: #1da1f2;
     width: 100%;
     height: 180px;
     padding: 0px;
-    margin-top: 3%;
+    margin-top: 0;
 }
 
 .signup-button {
@@ -206,4 +248,34 @@ p {
 #bird2 {
     font-size: 32px;
     color: #1da1f2;
+}
+
+nav {
+    background-color: white;
+}
+
+.navbar {
+    border-radius: 0;
+    margin: 0;
+}
+
+#search {
+    border-radius: 15px 0 0 15px;
+}
+
+#searchbutton {
+    border-radius: 0 15px 15px 0;
+}
+
+#search,
+#searchbutton {
+    height: 30px;
+    border-color: #ece6f0;
+    background-color: #f5f8fa;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.navbar-right {
+    padding: 10px;
 }
